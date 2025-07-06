@@ -1,0 +1,4 @@
+scikit-learn>=1.6.1
+numpy>=2.2.5
+matplotlib>=3.10.3
+m2cgen>=0.10.0
