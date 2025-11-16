@@ -14,11 +14,11 @@ data2.columns = ['atmos_temp', 'flow_rate', 'pwm', 'voltage', 'current', 'batter
 data3.columns = ['atmos_temp', 'flow_rate', 'pwm', 'voltage', 'current', 'battery_temp']
 data4.columns = ['atmos_temp', 'flow_rate', 'pwm', 'voltage', 'current', 'battery_temp']
 data2['battery_temp'] = data2['battery_temp'].shift(-60)
-data3['battery_temp'] = data2['battery_temp'].shift(-60)
-data4['battery_temp'] = data2['battery_temp'].shift(-60)
+data3['battery_temp'] = data3['battery_temp'].shift(-60)
+data4['battery_temp'] = data4['battery_temp'].shift(-60)
 data2 = data2.dropna()
-data3 = data2.dropna()
-data4 = data2.dropna()
+data3 = data3.dropna()
+data4 = data4.dropna()
 data=pd.concat([data2, data3, data4], axis=0)
 data.drop_duplicates(subset=None, keep='first', inplace=True)
 X = data.iloc[:,:-1].values  
@@ -42,4 +42,5 @@ model_code = m2c.export_to_c(model)
 print(model_code)
 
 print("Model exported successfully.")
+
 
